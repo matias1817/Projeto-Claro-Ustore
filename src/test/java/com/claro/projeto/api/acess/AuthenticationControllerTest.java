@@ -36,7 +36,6 @@ public class AuthenticationControllerTest {
 
     @Test
     public void testSigninSuccess() {
-        // Arrange
         AuthenticationRequest request = new AuthenticationRequest();
         request.setUsername("zezin");
         request.setPassword("123");
@@ -50,10 +49,9 @@ public class AuthenticationControllerTest {
         when(jwtTokenProvider.createToken(anyString(), anyList())).thenReturn("mockedToken");
         when(jwtTokenProvider.createRefreshToken(anyString())).thenReturn("mockedRefreshToken");
 
-        // Act
         Map<Object, Object> result = controller.signin(request);
 
-        // Assert
+
         assertEquals("zezin", result.get("username"));
         assertEquals(1L, result.get("id"));
         assertEquals("mockedToken", result.get("token"));

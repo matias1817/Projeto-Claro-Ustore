@@ -42,10 +42,14 @@ public class User extends AuditableEntity implements UserDetails{
 
     @Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
+    private Integer limitVm;
     
     @JsonIgnore
     @Column(nullable = false)
     private String password;
+
     
     @JsonIgnore
     @ElementCollection(fetch = FetchType.EAGER)

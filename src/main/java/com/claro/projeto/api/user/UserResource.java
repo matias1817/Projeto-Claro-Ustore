@@ -7,14 +7,16 @@ public record UserResource(
     String cpf,
     String email,
     String name,
-    LocalDate creationDate
+    LocalDate creationDate,
+    Integer limiteVm
 ) {
     public UserResource(User user) {
         this(
             user.getCpf(),
             user.getEmail(),
             user.getUsername(),
-            user.getCreationDate()
+            user.getCreationDate(),
+            user.getLimitVm()
         );			
     }
 }

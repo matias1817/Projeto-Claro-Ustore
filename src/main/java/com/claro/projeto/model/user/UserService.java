@@ -40,6 +40,7 @@ public class UserService implements UserDetailsService {
 
         user.setCpf(updatedUser.getCpf());
         user.setEmail(updatedUser.getEmail());
+        user.setLimitVm(updatedUser.getLimitVm());
 
         user.setVersion(user.getVersion()+1);
         user.setLastModificationDate(LocalDate.now());

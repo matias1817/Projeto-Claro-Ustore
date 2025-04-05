@@ -23,10 +23,13 @@ public class UserRequest {
 
     private String name;
 
+    private Integer limiteVm;
+
     public User build() {
         return User.builder()
         .email(email)
         .cpf(cpf)
+        .limitVm(limiteVm)
         .username(name)
         .password(password)
         .build();
