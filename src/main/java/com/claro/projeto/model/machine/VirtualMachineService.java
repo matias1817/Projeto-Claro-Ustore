@@ -36,6 +36,7 @@ public class VirtualMachineService {
         machine.setDisplayName(updatedMachine.getDisplayName());
         machine.setMemory(updatedMachine.getMemory());
         machine.setStatus(updatedMachine.getStatus());
+        machine.setLastModificationDate(LocalDate.now());
 
         machine.setVersion(machine.getVersion()+1);
         this.repository.save(machine);

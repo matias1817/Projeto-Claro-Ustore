@@ -72,8 +72,10 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
                 .requestMatchers(HttpMethod.PUT, "/api/user/*").hasAnyAuthority(User.ROLE_USER)
                 .requestMatchers(HttpMethod.DELETE, "/api/user/*").hasAnyAuthority(User.ROLE_USER)
-                .requestMatchers(HttpMethod.GET, "/api/user/").hasAnyAuthority(User.ROLE_USER)
+                .requestMatchers(HttpMethod.GET, "/api/user").hasAnyAuthority(User.ROLE_USER)
+                .requestMatchers(HttpMethod.GET, "/api/user/*").hasAnyAuthority(User.ROLE_USER)
             )
+            
             .addFilterBefore(new JwtTokenAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

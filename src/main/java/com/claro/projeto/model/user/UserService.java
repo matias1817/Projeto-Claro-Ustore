@@ -40,7 +40,6 @@ public class UserService implements UserDetailsService {
 
         user.setCpf(updatedUser.getCpf());
         user.setEmail(updatedUser.getEmail());
-        user.setPassword(bCryptPasswordEncoder.encode(updatedUser.getPassword()));
 
         user.setVersion(user.getVersion()+1);
         user.setLastModificationDate(LocalDate.now());
