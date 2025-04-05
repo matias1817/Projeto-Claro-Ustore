@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.claro.projeto.model.machine.VirtualMachine;
 import com.claro.projeto.model.machine.VirtualMachineService;
+import com.claro.projeto.model.user.User;
+import com.claro.projeto.model.user.UserService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -27,10 +29,17 @@ public class VirtualMachineController {
 
     @Autowired
     private VirtualMachineService machineService;
+    
+    @Autowired
+    private UserService userService;
+
 
     @PostMapping
     public ResponseEntity<VirtualMachineResource> save(@RequestBody @Valid VirtualMachineRequest request) {
-        VirtualMachine machine = this.machineService.save(request.build());
+        VirtualMachine machine = request.build();
+        User user = userService.findByID(request.getUserId());
+        machine.setUser(user);
+        machine = this.machineService.save(machine);
         VirtualMachineResource response = new VirtualMachineResource(machine);
         return new ResponseEntity<VirtualMachineResource>(response, HttpStatus.CREATED);
     }
@@ -55,10 +64,17 @@ public class VirtualMachineController {
         List<VirtualMachineResource> responses = machines.stream()
         .map(VirtualMachineResource::new)
         .toList();
-
         return ResponseEntity.ok(responses);
     }
 
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<VirtualMachineResource>> findByUser(@PathVariable("id") Long id) {
+        List<VirtualMachine> machines = this.machineService.findByUser(id);
+        List<VirtualMachineResource> responses = machines.stream()
+        .map(VirtualMachineResource::new)
+        .toList();
+        return ResponseEntity.ok(responses);
+    }
     
     @PutMapping("/{id}")
     public ResponseEntity<VirtualMachine> update(@PathVariable("id") Long id, @RequestBody VirtualMachineRequest request){

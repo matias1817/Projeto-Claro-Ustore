@@ -68,7 +68,8 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
                 .requestMatchers(HttpMethod.PUT, "/api/machine/*").hasAnyAuthority(User.ROLE_USER)
                 .requestMatchers(HttpMethod.DELETE, "/api/machine/*").hasAnyAuthority(User.ROLE_USER)
                 .requestMatchers(HttpMethod.GET, "/api/machine/").hasAnyAuthority(User.ROLE_USER)
-              
+                .requestMatchers(HttpMethod.GET, "/api/machine/*").hasAnyAuthority(User.ROLE_USER)
+                .requestMatchers(HttpMethod.GET, "/api/machine/user/*").hasAnyAuthority(User.ROLE_USER)
 
                 .requestMatchers(HttpMethod.PUT, "/api/user/*").hasAnyAuthority(User.ROLE_USER)
                 .requestMatchers(HttpMethod.DELETE, "/api/user/*").hasAnyAuthority(User.ROLE_USER)

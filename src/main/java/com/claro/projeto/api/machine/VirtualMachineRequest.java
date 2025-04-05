@@ -22,11 +22,14 @@ public class VirtualMachineRequest {
 
     private Integer memory;
 
+    private Long userId;
+
     public VirtualMachine build() {
         return VirtualMachine.builder()
         .cpu(cpu)
         .displayName(displayName)
         .memory(memory)
+    
         .status(Status.valueOf(status.toUpperCase()))
         .build();
     }
