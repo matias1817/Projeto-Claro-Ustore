@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of = { "id" })
 @MappedSuperclass
-public abstract class EntidadeBasica implements Serializable {
+public abstract class BasicEntity implements Serializable {
 
    @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,6 +26,6 @@ public abstract class EntidadeBasica implements Serializable {
 
    @JsonIgnore
    @Column
-   private Boolean habilitado;
+   private Boolean enabled;
   
 }

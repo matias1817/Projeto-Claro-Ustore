@@ -17,26 +17,26 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class EntidadeAuditavel extends EntidadeBasica {
+public abstract class AuditableEntity  extends BasicEntity {
   
    @JsonIgnore
    @Version
-   private Long versao;
+   private Long version;
 
    @JsonIgnore
    @CreatedDate
-   private LocalDate dataCriacao;
+   private LocalDate creationDate;
 
    @JsonIgnore
    @LastModifiedDate
-   private LocalDate dataUltimaModificacao;
+   private LocalDate lastModificationDate;
 
    @JsonIgnore
    @Column
-   private Long criadoPor; // Id do usuário que o criou
+   private Long createdBy; // Id do usuário que o criou
 
    @JsonIgnore
    @Column
-   private Long ultimaModificacaoPor; // Id do usuário que fez a última alteração
+   private Long lastChangeBy; // Id do usuário que fez a última alteração
 
 }

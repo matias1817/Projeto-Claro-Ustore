@@ -1,6 +1,6 @@
-package com.claro.projeto.api.maquina;
+package com.claro.projeto.api.machine;
 
-import com.claro.projeto.model.maquina.Maquina;
+import com.claro.projeto.model.machine.VirtualMachine;
 import com.claro.projeto.util.enums.Status;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class MaquinaRequest {
+public class VirtualMachineRequest {
 
     private String displayName;
 
@@ -22,8 +22,8 @@ public class MaquinaRequest {
 
     private Integer memory;
 
-    public Maquina build() {
-        return Maquina.builder()
+    public VirtualMachine build() {
+        return VirtualMachine.builder()
         .cpu(cpu)
         .displayName(displayName)
         .memory(memory)
