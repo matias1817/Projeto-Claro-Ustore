@@ -91,13 +91,13 @@ public class UserServiceTest {
     public void testDelete() {
         User user = new User();
         user.setId(1L);
-        user.setEnabled(true);
+        user.setHabilitado(true);
 
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
 
         userService.delete(1L);
 
-        assertFalse(user.getEnabled());
+        assertFalse(user.getHabilitado());
         verify(userRepository).save(user);
     }
 

@@ -33,7 +33,7 @@ public class VirtualMachineService {
     }
 
 
-        machine.setEnabled(true);
+        machine.setHabilitado(true);
         machine.setVersion(1L);
         machine.setCreationDate(LocalDate.now());
 
@@ -77,7 +77,9 @@ public class VirtualMachineService {
         
         VirtualMachine machine = this.findByID(id);
 
-        machine.setEnabled(Boolean.FALSE);
+        machine.setDisplayName(null);
+
+        machine.setHabilitado(Boolean.FALSE);
 
         this.repository.save(machine);
     }

@@ -84,13 +84,13 @@ public class VirtualMachineServiceTest {
     public void testDelete() {
         VirtualMachine machine = new VirtualMachine();
         machine.setId(1L);
-        machine.setEnabled(true);
+        machine.setHabilitado(true);
 
         when(virtualMachineRepository.findById(1L)).thenReturn(Optional.of(machine));
 
         virtualMachineService.delete(1L);
 
-        assertFalse(machine.getEnabled());
+        assertFalse(machine.getHabilitado());
         verify(virtualMachineRepository).save(machine);
     }
 

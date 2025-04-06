@@ -9,7 +9,8 @@ public record VirtualMachineResource(
     String displayName,
     Integer cpu,
     Integer memory,
-    LocalDate dataCriacao
+    LocalDate dataCriacao,
+    Long Id
 ) {
     public VirtualMachineResource(VirtualMachine virtualMachine) {
         this(
@@ -17,7 +18,8 @@ public record VirtualMachineResource(
             virtualMachine.getDisplayName(),
             virtualMachine.getCpu(),
             virtualMachine.getMemory(),
-            virtualMachine.getCreationDate()
+            virtualMachine.getCreationDate(),
+            virtualMachine.getId()
         );			
     }
 }

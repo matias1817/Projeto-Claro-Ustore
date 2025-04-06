@@ -22,7 +22,7 @@ import com.claro.projeto.security.JwtTokenProvider;
 
 @RestController
 @RequestMapping("/api/login")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
 
     @Autowired

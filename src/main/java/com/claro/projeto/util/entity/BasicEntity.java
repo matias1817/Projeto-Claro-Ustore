@@ -26,6 +26,6 @@ public abstract class BasicEntity implements Serializable {
 
    @JsonIgnore
    @Column
-   private Boolean enabled;
+   private Boolean habilitado;
   
 }

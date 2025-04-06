@@ -1,5 +1,7 @@
 package com.claro.projeto.model.machine;
 
+import org.hibernate.annotations.Where;
+
 import com.claro.projeto.model.user.User;
 import com.claro.projeto.util.entity.AuditableEntity;
 import com.claro.projeto.util.enums.Status;
@@ -26,7 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class VirtualMachine extends AuditableEntity {
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true)
     private String displayName;
 
     @Column(nullable = false)

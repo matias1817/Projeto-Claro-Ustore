@@ -25,7 +25,7 @@ public class UserService implements UserDetailsService {
     @Transactional
     public User save (User user){
 
-        user.setEnabled(true);
+        user.setHabilitado(true);
         user.setVersion(1L);
         user.setCreationDate(LocalDate.now());
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -60,7 +60,7 @@ public class UserService implements UserDetailsService {
     @Transactional
     public void delete(Long id){
         User user = this.findByID(id);
-        user.setEnabled(Boolean.FALSE);
+        user.setHabilitado(Boolean.FALSE);
         this.repository.save(user);
     }
 
