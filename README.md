@@ -7,11 +7,11 @@
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
 ```bash
-PASS_DB=senha_do_banco <br>
-DB_NAME=Machines_DB  <br>
-HOST_DB=localhost  <br>
-PORT_DB=5435  <br>
-SECRET_KEY=sua_secret_key <br>
+PASS_DB=senha_do_banco
+DB_NAME=Machines_DB 
+HOST_DB=localhost 
+PORT_DB=5435 
+SECRET_KEY=sua_secret_key 
 ```
 
 Você pode gerar uma `SECRET_KEY` segura para os Tokens JWT usando o comando do openssl comando (uma chave também será enviada pelo email):
