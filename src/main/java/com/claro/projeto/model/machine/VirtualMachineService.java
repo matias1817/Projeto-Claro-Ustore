@@ -31,16 +31,10 @@ public class VirtualMachineService {
     if (user.getLimitVm() <= list.size()) {
         throw new LimiteDeVMsAtingidoExeception("Limite de VMs atingido para o usuário: " + user.getUsername());
     }
-
-
         machine.setHabilitado(true);
         machine.setVersion(1L);
         machine.setCreationDate(LocalDate.now());
-
-        
-
        VirtualMachine vm = this.repository.save(machine);
-
         return vm;
     }
 
