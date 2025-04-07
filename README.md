@@ -36,7 +36,12 @@ Com os containers já em execução, inicie a aplicação com o Maven Wrapper:
 ```bash
 ./mvnw spring-boot:run
 ```
+### 4. Rodar testes
 
+Para rodar os testes unitários execute
+```bash
+./mvnw test
+```
 ---
 
 ## Requisitos
